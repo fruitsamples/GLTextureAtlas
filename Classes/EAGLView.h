@@ -4,7 +4,7 @@
  
  Abstract: The EAGLView class is a UIView subclass that renders OpenGL scene.
  
- Version: 1.0
+ Version: 1.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple Inc.
  ("Apple") in consideration of your agreement to the following terms, and your
@@ -77,14 +77,22 @@ Note that setting the view non-opaque will only work if the EAGL surface has an 
 	
 	GLuint textureAtlas;
 	PVRTexture *pvrTextureAtlas;
-    
-    NSTimer *animationTimer;
-    NSTimeInterval animationInterval;
 	
 	Boolean init;
+    
+	BOOL animating;
+	BOOL displayLinkSupported;
+	NSInteger animationFrameInterval;
+	// Use of the CADisplayLink class is the preferred method for controlling your animation timing.
+	// CADisplayLink will link to the main display and fire every vsync when added to a given run-loop.
+	// The NSTimer class is used only as fallback when running on a pre 3.1 device where CADisplayLink
+	// isn't available.
+	id displayLink;
+    NSTimer *animationTimer;
 }
 
-@property NSTimeInterval animationInterval;
+@property (readonly, nonatomic, getter=isAnimating) BOOL animating;
+@property (nonatomic) NSInteger animationFrameInterval;
 
 - (void)startAnimation;
 - (void)stopAnimation;

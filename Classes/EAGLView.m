@@ -4,7 +4,7 @@
  
  Abstract: The EAGLView class is a UIView subclass that renders OpenGL scene.
  
- Version: 1.0
+ Version: 1.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple Inc.
  ("Apple") in consideration of your agreement to the following terms, and your
@@ -79,9 +79,6 @@ particle butterflies[NUM_IMPOSTERS];
 // A class extension to declare private methods
 @interface EAGLView ()
 
-@property (nonatomic, retain) EAGLContext *context;
-@property (nonatomic, assign) NSTimer *animationTimer;
-
 - (BOOL) createFramebuffer;
 - (void) destroyFramebuffer;
 
@@ -92,9 +89,8 @@ particle butterflies[NUM_IMPOSTERS];
 
 @implementation EAGLView
 
-@synthesize context;
-@synthesize animationTimer;
-@synthesize animationInterval;
+@synthesize animating;
+@dynamic animationFrameInterval;
 
 // You must implement this method
 + (Class)layerClass {
@@ -120,14 +116,45 @@ particle butterflies[NUM_IMPOSTERS];
             return nil;
         }
         
-        animationInterval = 1.0 / 60.0;
+        animating = FALSE;
+		displayLinkSupported = FALSE;
+		animationFrameInterval = 1;
+		displayLink = nil;
+		animationTimer = nil;
+		
+		// A system version of 3.1 or greater is required to use CADisplayLink. The NSTimer
+		// class is used as fallback when it isn't available.
+		NSString *reqSysVer = @"3.1";
+		NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+		if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
+			displayLinkSupported = TRUE;
 		
 		// load the texture atlas in the PVRTC format
 		if (USE_4_BIT_PVR)
 			[self loadPVRTexture:@"butterfly_4"];
 		else //use 2-bit pvr
 			[self loadPVRTexture:@"butterfly_2"];
+		
+		// precalc some random normals and velocities
+		int i;
+		for (i = 0; i < NUM_IMPOSTERS; i++) {
+			float x = randf();
+			float y = randf();
+			float z = randf();
+			if (fabs(x<0.1) && fabs(y<0.1)) {
+				x += (x>0) ? 0.1 : -0.1;
+				y += (y>0) ? 0.1 : -0.1;
+			}
+			float m = 1.0/sqrtf( (x*x) + (y*y) + (z*z) );
+			butterflies[i].x = x*m;
+			butterflies[i].y = y*m;
+			butterflies[i].z = z*m;
+			butterflies[i].t = 0;
+			butterflies[i].v = randf()/2.; butterflies[i].v += (butterflies[i].v > 0) ? 0.1 : -0.1;
+			butterflies[i].c = i % (NUM_ROWS*NUM_COLS);
+		}
     }
+	
     return self;
 }
 
@@ -253,7 +280,7 @@ int comp(const void *p1, const void *p2)
 	
 	// the interleaved array including position and texture coordinate data of all vertices
 	// first position (3 floats) then tex coord (2 floats)
-	// Note: we want every attribute to be 4-byte left aligned for best performance, 
+	// NOTE: we want every attribute to be 4-byte left aligned for best performance, 
 	// so if you use shorts (2 bytes), padding may be needed to achieve that.
 	static GLfloat pos_tex_all[NUM_IMPOSTERS*4*(3+2)];
 	
@@ -380,25 +407,6 @@ int comp(const void *p1, const void *p2)
         return NO;
     }
 	
-	// precalc some random normals and velocities
-	int i;
-	for (i = 0; i < NUM_IMPOSTERS; i++) {
-		float x = randf();
-		float y = randf();
-		float z = randf();
-		if (fabs(x<0.1) && fabs(y<0.1)) {
-			x += (x>0) ? 0.1 : -0.1;
-			y += (y>0) ? 0.1 : -0.1;
-		}
-		float m = 1.0/sqrtf( (x*x) + (y*y) + (z*z) );
-		butterflies[i].x = x*m;
-		butterflies[i].y = y*m;
-		butterflies[i].z = z*m;
-		butterflies[i].t = 0;
-		butterflies[i].v = randf()/2.; butterflies[i].v += (butterflies[i].v > 0) ? 0.1 : -0.1;
-		butterflies[i].c = i % (NUM_ROWS*NUM_COLS);
-	}
-	
     return YES;
 }
 
@@ -417,31 +425,70 @@ int comp(const void *p1, const void *p2)
 }
 
 
-- (void)startAnimation {
-    self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:animationInterval target:self selector:@selector(drawView) userInfo:nil repeats:YES];
+- (NSInteger) animationFrameInterval
+{
+	return animationFrameInterval;
 }
 
-
-- (void)stopAnimation {
-    self.animationTimer = nil;
+- (void) setAnimationFrameInterval:(NSInteger)frameInterval
+{
+	// Frame interval defines how many display frames must pass between each time the
+	// display link fires. The display link will only fire 30 times a second when the
+	// frame internal is two on a display that refreshes 60 times a second. The default
+	// frame interval setting of one will fire 60 times a second when the display refreshes
+	// at 60 times a second. A frame interval setting of less than one results in undefined
+	// behavior.
+	if (frameInterval >= 1)
+	{
+		animationFrameInterval = frameInterval;
+		
+		if (animating)
+		{
+			[self stopAnimation];
+			[self startAnimation];
+		}
+	}
 }
 
-
-- (void)setAnimationTimer:(NSTimer *)newTimer {
-    [animationTimer invalidate];
-    animationTimer = newTimer;
+- (void) startAnimation
+{
+	if (!animating)
+	{
+		if (displayLinkSupported)
+		{
+			// CADisplayLink is API new to iPhone SDK 3.1. Compiling against earlier versions will result in a warning, but can be dismissed
+			// if the system version runtime check for CADisplayLink exists in -initWithCoder:. The runtime check ensures this code will
+			// not be called in system versions earlier than 3.1.
+			
+			displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:self selector:@selector(drawView)];
+			[displayLink setFrameInterval:animationFrameInterval];
+			[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+		}
+		else
+			animationTimer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)((1.0 / 60.0) * animationFrameInterval) target:self selector:@selector(drawView) userInfo:nil repeats:TRUE];
+		
+		animating = TRUE;
+	}
 }
 
-
-- (void)setAnimationInterval:(NSTimeInterval)interval {
-    
-    animationInterval = interval;
-    if (animationTimer) {
-        [self stopAnimation];
-        [self startAnimation];
-    }
+- (void)stopAnimation
+{
+	if (animating)
+	{
+		if (displayLinkSupported)
+		{
+			[displayLink invalidate];
+			displayLink = nil;
+		}
+		else
+		{
+			[animationTimer invalidate];
+			animationTimer = nil;
+		}
+		
+		animating = FALSE;
+	}
 }
-
 
 - (void)dealloc {
 	
@@ -452,8 +499,6 @@ int comp(const void *p1, const void *p2)
 	}
 	[pvrTextureAtlas release];
 	pvrTextureAtlas = nil;	
-    
-    [self stopAnimation];
     
     if ([EAGLContext currentContext] == context) {
         [EAGLContext setCurrentContext:nil];

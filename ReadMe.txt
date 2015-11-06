@@ -17,12 +17,12 @@ This sample also uses some unrelated techniques, including random number generat
 ================================================================================
 BUILD REQUIREMENTS:
 
-Mac OS X v10.5.3, Xcode 3.1, iPhone OS 2.2 and later
+iPhone SDK 3.1 and later
 
 ================================================================================
 RUNTIME REQUIREMENTS:
 
-Mac OS X v10.5.3, iPhone OS 2.0 and later
+iPhone OS 3.1 and later
 
 ================================================================================
 PACKAGING LIST:
@@ -46,6 +46,12 @@ The GLTextureAtlasAppDelegate class is the app delegate that ties everything tog
 butterfly_2.pvr
 butterfly_4.pvr
 These are the pvr files generated from the butterfly.png image by the "Run Script" build phase.
+
+================================================================================
+CHANGES FROM PREVIOUS VERSIONS:
+
+Version 1.1
+Updated for iPhone OS 3.1. Use CADisplayLink as the preferred method for controlling animation timing, and fall back to NSTimer when running on a pre 3.1 device where CADisplayLink is not available.
 
 ================================================================================
 Copyright (C) 2009 Apple Inc. All rights reserved.
