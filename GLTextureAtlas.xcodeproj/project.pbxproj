@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186FBE8C11CADF55000061EC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186FBE8A11CADF55000061EC /* MainWindow.xib */; };
+		18A6140211D3D62F0078F8B4 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A613FF11D3D62F0078F8B4 /* Icon-72.png */; };
+		18A6140311D3D62F0078F8B4 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A6140011D3D62F0078F8B4 /* Icon-Small-50.png */; };
+		18A6140411D3D62F0078F8B4 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 18A6140111D3D62F0078F8B4 /* iTunesArtwork */; };
+		18A6144211D3FC580078F8B4 /* butterfly.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A6144111D3FC580078F8B4 /* butterfly.png */; };
+		18F7177511CAC9B100EF110D /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F7177011CAC9B100EF110D /* Icon-Small.png */; };
+		18F7177611CAC9B100EF110D /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F7177111CAC9B100EF110D /* Icon-Small@2x.png */; };
+		18F7177711CAC9B100EF110D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F7177211CAC9B100EF110D /* Icon.png */; };
+		18F7177811CAC9B100EF110D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F7177311CAC9B100EF110D /* Icon@2x.png */; };
 		1D3623260D0F684500981E51 /* GLTextureAtlasAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* GLTextureAtlasAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -16,15 +25,22 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		AF325C0E0F97E8B1003E4A3A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF325C0D0F97E8B1003E4A3A /* CoreGraphics.framework */; };
-		AFB10AE60FB25FDC00B0FF87 /* butterfly.png in Resources */ = {isa = PBXBuildFile; fileRef = AFB10AE50FB25FDC00B0FF87 /* butterfly.png */; };
-		AFB10AED0FB2606200B0FF87 /* butterfly_2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = AFB10AEB0FB2606200B0FF87 /* butterfly_2.pvr */; };
-		AFB10AEE0FB2606200B0FF87 /* butterfly_4.pvr in Resources */ = {isa = PBXBuildFile; fileRef = AFB10AEC0FB2606200B0FF87 /* butterfly_4.pvr */; };
-		AFB10E4B0FB3807900B0FF87 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AFB10E4A0FB3807900B0FF87 /* Icon.png */; };
 		AFC141C40FB0B196001B158B /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC141C30FB0B196001B158B /* PVRTexture.m */; };
 		AFC143E40FB0EACD001B158B /* Matrix4x4.c in Sources */ = {isa = PBXBuildFile; fileRef = AFC143E20FB0EACD001B158B /* Matrix4x4.c */; };
+		AFFD85CC11D54E1F00181FB0 /* butterfly_2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = AFFD85CA11D54E1F00181FB0 /* butterfly_2.pvr */; };
+		AFFD85CD11D54E1F00181FB0 /* butterfly_4.pvr in Resources */ = {isa = PBXBuildFile; fileRef = AFFD85CB11D54E1F00181FB0 /* butterfly_4.pvr */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		186FBE8B11CADF55000061EC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		18A613FF11D3D62F0078F8B4 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "images/Icon-72.png"; sourceTree = "<group>"; };
+		18A6140011D3D62F0078F8B4 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "images/Icon-Small-50.png"; sourceTree = "<group>"; };
+		18A6140111D3D62F0078F8B4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = images/iTunesArtwork; sourceTree = "<group>"; };
+		18A6144111D3FC580078F8B4 /* butterfly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = butterfly.png; path = images/butterfly.png; sourceTree = "<group>"; };
+		18F7177011CAC9B100EF110D /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "images/Icon-Small.png"; sourceTree = "<group>"; };
+		18F7177111CAC9B100EF110D /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "images/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		18F7177211CAC9B100EF110D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = images/Icon.png; sourceTree = "<group>"; };
+		18F7177311CAC9B100EF110D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "images/Icon@2x.png"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* GLTextureAtlasAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextureAtlasAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* GLTextureAtlasAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLTextureAtlasAppDelegate.m; sourceTree = "<group>"; };
@@ -40,14 +56,12 @@
 		8D1107310486CEB800E47090 /* GLTextureAtlas-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GLTextureAtlas-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		AF28F90E1061A29900B93E5C /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
 		AF325C0D0F97E8B1003E4A3A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		AFB10AE50FB25FDC00B0FF87 /* butterfly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = butterfly.png; path = Resources/butterfly.png; sourceTree = "<group>"; };
-		AFB10AEB0FB2606200B0FF87 /* butterfly_2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; name = butterfly_2.pvr; path = Resources/butterfly_2.pvr; sourceTree = "<group>"; };
-		AFB10AEC0FB2606200B0FF87 /* butterfly_4.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; name = butterfly_4.pvr; path = Resources/butterfly_4.pvr; sourceTree = "<group>"; };
-		AFB10E4A0FB3807900B0FF87 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
 		AFC141C20FB0B196001B158B /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
 		AFC141C30FB0B196001B158B /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		AFC143E20FB0EACD001B158B /* Matrix4x4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Matrix4x4.c; sourceTree = "<group>"; };
 		AFC143E30FB0EACD001B158B /* Matrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4x4.h; sourceTree = "<group>"; };
+		AFFD85CA11D54E1F00181FB0 /* butterfly_2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; name = butterfly_2.pvr; path = images/butterfly_2.pvr; sourceTree = "<group>"; };
+		AFFD85CB11D54E1F00181FB0 /* butterfly_4.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; name = butterfly_4.pvr; path = images/butterfly_4.pvr; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +128,17 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AFB10E4A0FB3807900B0FF87 /* Icon.png */,
-				AFB10AEB0FB2606200B0FF87 /* butterfly_2.pvr */,
-				AFB10AEC0FB2606200B0FF87 /* butterfly_4.pvr */,
-				AFB10AE50FB25FDC00B0FF87 /* butterfly.png */,
+				AFFD85CA11D54E1F00181FB0 /* butterfly_2.pvr */,
+				AFFD85CB11D54E1F00181FB0 /* butterfly_4.pvr */,
+				18A6144111D3FC580078F8B4 /* butterfly.png */,
+				18A613FF11D3D62F0078F8B4 /* Icon-72.png */,
+				18A6140011D3D62F0078F8B4 /* Icon-Small-50.png */,
+				18A6140111D3D62F0078F8B4 /* iTunesArtwork */,
+				186FBE8A11CADF55000061EC /* MainWindow.xib */,
+				18F7177011CAC9B100EF110D /* Icon-Small.png */,
+				18F7177111CAC9B100EF110D /* Icon-Small@2x.png */,
+				18F7177211CAC9B100EF110D /* Icon.png */,
+				18F7177311CAC9B100EF110D /* Icon@2x.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* GLTextureAtlas-Info.plist */,
 			);
@@ -165,6 +186,13 @@
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GLTextureAtlas" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,10 +208,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				AFB10AE60FB25FDC00B0FF87 /* butterfly.png in Resources */,
-				AFB10AED0FB2606200B0FF87 /* butterfly_2.pvr in Resources */,
-				AFB10AEE0FB2606200B0FF87 /* butterfly_4.pvr in Resources */,
-				AFB10E4B0FB3807900B0FF87 /* Icon.png in Resources */,
+				18F7177511CAC9B100EF110D /* Icon-Small.png in Resources */,
+				18F7177611CAC9B100EF110D /* Icon-Small@2x.png in Resources */,
+				18F7177711CAC9B100EF110D /* Icon.png in Resources */,
+				18F7177811CAC9B100EF110D /* Icon@2x.png in Resources */,
+				186FBE8C11CADF55000061EC /* MainWindow.xib in Resources */,
+				18A6140211D3D62F0078F8B4 /* Icon-72.png in Resources */,
+				18A6140311D3D62F0078F8B4 /* Icon-Small-50.png in Resources */,
+				18A6140411D3D62F0078F8B4 /* iTunesArtwork in Resources */,
+				18A6144211D3FC580078F8B4 /* butterfly.png in Resources */,
+				AFFD85CC11D54E1F00181FB0 /* butterfly_2.pvr in Resources */,
+				AFFD85CD11D54E1F00181FB0 /* butterfly_4.pvr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,15 +231,15 @@
 			files = (
 			);
 			inputPaths = (
-				$SRCROOT/Resources/butterfly.png,
+				$SRCROOT/images/butterfly.png,
 			);
 			outputPaths = (
-				$SRCROOT/Resources/butterfly_2.pvr,
-				$SRCROOT/Resources/butterfly_4.pvr,
+				$SRCROOT/images/butterfly_2.pvr,
+				$SRCROOT/images/butterfly_4.pvr,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TEXTURE_TOOL=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/texturetool\n\n$TEXTURE_TOOL -e PVRTC --bits-per-pixel-2 -o \"$SRCROOT/Resources/butterfly_2.pvr\" -f PVR \"$SRCROOT/Resources/butterfly.png\"\n$TEXTURE_TOOL -e PVRTC --bits-per-pixel-4 -o \"$SRCROOT/Resources/butterfly_4.pvr\" -f PVR \"$SRCROOT/Resources/butterfly.png\"";
+			shellScript = "xcrun -sdk iphoneos texturetool -e PVRTC --bits-per-pixel-2 -o \"$SRCROOT/images/butterfly_2.pvr\" -f PVR \"$SRCROOT/images/butterfly.png\"\nxcrun -sdk iphoneos texturetool -e PVRTC --bits-per-pixel-4 -o \"$SRCROOT/images/butterfly_4.pvr\" -f PVR \"$SRCROOT/images/butterfly.png\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -223,6 +258,17 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		186FBE8A11CADF55000061EC /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				186FBE8B11CADF55000061EC /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -235,6 +281,7 @@
 				GCC_PREFIX_HEADER = GLTextureAtlas_Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "GLTextureAtlas-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PRODUCT_NAME = GLTextureAtlas;
 			};
 			name = Debug;
@@ -248,6 +295,7 @@
 				GCC_PREFIX_HEADER = GLTextureAtlas_Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "GLTextureAtlas-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PRODUCT_NAME = GLTextureAtlas;
 			};
 			name = Release;
@@ -260,9 +308,10 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -274,9 +323,10 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
